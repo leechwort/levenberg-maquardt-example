@@ -83,6 +83,11 @@ void gradient(double *g, double *par, int x, void *fdata)
     g[2] = -x * (par[1] - par[0]) * exp(-par[2] * x);
 }
 
+int temp_to_time(double *par, double temp)
+{
+    return -(1/par[2]) * log((temp - par[0])/(par[1] - par[0]));
+}
+
 int main(int argc, char *argv[])
 {
     int n_iterations;
@@ -93,5 +98,8 @@ int main(int argc, char *argv[])
     printf("N iterations: %d\n", n_iterations);
     printf("T_heater: %f, T_0: %f, k: %f\n",
            params[0], params[1], params[2]);
+    printf("**************** Interpolation test ***********************\n");
+    printf("Search for temp 70 degrees\n");
+    printf("Result: %d sample\n", temp_to_time(params, 50.0));
     return 0;
 }
