@@ -83,6 +83,13 @@ void gradient(double *g, double *par, int x, void *fdata)
     g[2] = -x * (par[1] - par[0]) * exp(-par[2] * x);
 }
 
+/*
+ * @brief  Function for prediction of time, when target temperature will be reached
+ * 
+ * @par    Parameters from Newton equation
+ * @temp   Target temperature
+ * @return Number of sample
+ */
 int temp_to_time(double *par, double temp)
 {
     return -(1/par[2]) * log((temp - par[0])/(par[1] - par[0]));
