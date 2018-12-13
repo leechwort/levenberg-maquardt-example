@@ -78,7 +78,7 @@ double newton_func(double *par, int x, void *fdata)
  */
 void gradient(double *g, double *par, int x, void *fdata)
 {
-    g[0] = 1.0 + exp(-par[2] * x);
+    g[0] = 1.0 - exp(-par[2] * x);
     g[1] = exp(-par[2] * x);
     g[2] = -x * (par[1] - par[0]) * exp(-par[2] * x);
 }
