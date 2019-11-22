@@ -11,4 +11,4 @@ main: $(OBJ)
 	gcc -o $@ $^ $(CFLAGS) $(LDLAGS)
 
 clean:
-	rm -f $(ODIR)/*.o *~ core $(INCDIR)/*~ 
+	rm -f *.o main
